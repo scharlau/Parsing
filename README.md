@@ -3,7 +3,7 @@
 This is a demonstrator app focusing on different ways to use Ruby to pull data from files and to dump it into your database as part of a Rails application. This application uses helper classes in Ruby for this, such as CSV class, and the JSON class, and as well as the fall-back of String methods with the File class.
 
 We'll use this data on Polar bears in Alasks to develop our application
-Data taken from https://alaska.usgs.gov/products/data.php?dataid=130
+Data taken from https://alaska.usgs.gov/products/data.php?dataid=130 Download the zip file and unpack it to a folder.
 
 With this we can start developing our application.
 
@@ -30,9 +30,13 @@ We can start with generating a seed file to move the data. We do that with the c
 
 This will create a file under lib/tasks/bears.rake which we can now modify to suit our needs.
 
-Now, go look at the file here, and apply the code to your file, and you should find it runs ok. Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
+Now, go look at the file here in the repo, and copy the code to your file, and you should find it runs ok. Run it with the command
 
-You could expand on this by parsing the status files to see where the bears go and then use the geo-location data to plot them on a map.
+    rake bears:seed_bears
+
+Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
+
+You could expand on this by parsing the status file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where the bears go. Then you could use the geo-location data to plot their locations on a map.
 
 
 ##  TODO Reading a JSON file
