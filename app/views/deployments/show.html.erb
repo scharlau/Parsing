@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bearid:</strong>
+  <%= @deployment.BearID %>
+</p>
+
+<p>
+  <strong>Ptt id:</strong>
+  <%= @deployment.PTT_ID %>
+</p>
+
+<p>
+  <strong>Capture lat:</strong>
+  <%= @deployment.capture_lat %>
+</p>
+
+<p>
+  <strong>Capture long:</strong>
+  <%= @deployment.capture_long %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @deployment.Sex %>
+</p>
+
+<p>
+  <strong>Age class:</strong>
+  <%= @deployment.Age_class %>
+</p>
+
+<p>
+  <strong>Ear applied:</strong>
+  <%= @deployment.Ear_applied %>
+</p>
+
+<%= link_to 'Edit', edit_deployment_path(@deployment) %> |
+<%= link_to 'Back', deployments_path %>

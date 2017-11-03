@@ -1,0 +1,52 @@
+<%= form_with(model: deployment, local: true) do |form| %>
+  <% if deployment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deployment.errors.count, "error") %> prohibited this deployment from being saved:</h2>
+
+      <ul>
+      <% deployment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :BearID %>
+    <%= form.number_field :BearID, id: :deployment_BearID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PTT_ID %>
+    <%= form.number_field :PTT_ID, id: :deployment_PTT_ID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capture_lat %>
+    <%= form.text_field :capture_lat, id: :deployment_capture_lat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capture_long %>
+    <%= form.text_field :capture_long, id: :deployment_capture_long %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Sex %>
+    <%= form.text_field :Sex, id: :deployment_Sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Age_class %>
+    <%= form.text_field :Age_class, id: :deployment_Age_class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Ear_applied %>
+    <%= form.text_field :Ear_applied, id: :deployment_Ear_applied %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
