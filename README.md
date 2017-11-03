@@ -32,9 +32,11 @@ This will create a file under lib/tasks/bears.rake which we can now modify to su
 
 Now, go look at the file here, and apply the code to your file, and you should find it runs ok. Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
 
+You could expand on this by parsing the status files to see where the bears go and then use the geo-location data to plot them on a map.
 
-## Reading a JSON file
+
+##  TODO Reading a JSON file
 Ruby works well with JSON, as does Rails so using the JSON class is easy. http://ruby-doc.org/stdlib-2.4.2/libdoc/json/rdoc/JSON.html
 
-## Reading a Text File
+## TODO Reading a Text File
 This approach uses the File class to open a regular text file and reads each line looking for the different components, which will make up the data in the application. http://ruby-doc.org/core-2.4.2/File.html
