@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103063916) do
+ActiveRecord::Schema.define(version: 20171103172738) do
 
   create_table "deployments", force: :cascade do |t|
     t.integer "BearID"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20171103063916) do
     t.string "Ear_applied"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.integer "deployment_id"
+    t.integer "deployID"
+    t.string "recieved"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.decimal "temperature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deployment_id"], name: "index_statuses_on_deployment_id"
   end
 
 end
