@@ -1,6 +1,6 @@
 # README FOR PARSING
 
-This is a demonstrator app focusing on different ways to use Ruby to pull data from files and to dump it into your database as part of a Rails application. This application uses helper classes in Ruby for this, such as CSV class, and the JSON class, and as well as the fall-back of String methods with the File class.
+This is a 'Deliberate Practice' exercise focusing on different ways to use Ruby to pull data from files and to dump it into your database as part of a Rails application. This application uses helper classes in Ruby for this, such as CSV class, and the JSON class, and as well as the fall-back of String methods with the File class.
 
 We'll use this data on Polar bears in Alasks to develop our application
 Data taken from https://alaska.usgs.gov/products/data.php?dataid=130 Download the zip file and unpack it to a folder.
