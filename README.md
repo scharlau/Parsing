@@ -1,4 +1,4 @@
-# README FOR Parsing
+# README for Parsing
 
 This is a 'Deliberate Practice' exercise focusing on different ways to use Ruby to pull data from files and to dump it into your database as part of a Rails application. This application uses helper classes in Ruby for this, such as CSV class, and the JSON class, and as well as the fall-back of String methods with the File class.
 
@@ -54,7 +54,7 @@ Do this by coping lines 4-23 (the task seed_bears method) and pasting this into 
 When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell you can either
 a) delete the row, and then re-run the rake command, or
 b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work.
-For simplicity here, just delete the row and move on so that you get the file imported and the page views showing.
+For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch and look at the rake file there.
 
 Then, you can go back to the views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. Ideally, you could even plot the bear locations with a map.
 
