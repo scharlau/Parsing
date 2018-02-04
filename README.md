@@ -36,7 +36,7 @@ Now, go look at lib/tasks/bears.rake in the repo, and copy the code to your file
 
 Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
 
-##Following individual bears
+## Following individual bears
 You could expand on this by parsing the ...status.csv file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where each bear goes. Then you could use the geo-location data to plot their locations on a map.
 
 Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 and giving it a new method name such as seed_status, and then changing the items you retrieve from each row in the file.
