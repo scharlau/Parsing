@@ -4,7 +4,7 @@ namespace :bears do
   task seed_bears: :environment do
 
     #drop the old table data before importing the new stuff
-
+    Deployment.destroy_all
 
     CSV.foreach("lib/assets/PolarBear_Telemetry_southernBeaufortSea_2009_2011/USGS_WC_eartag_deployments_2009-2011.csv", :headers =>true) do |row |
       puts row.inspect #just so that we know the file's being read

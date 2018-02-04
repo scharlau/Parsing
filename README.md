@@ -13,7 +13,7 @@ This will create our new app structure. We can now look at the csv file and crea
 
     bin/rails generate scaffold deployments BearID:integer PTT_ID:integer capture_lat:decimal capture_long:decimal Sex Age_class Ear_applied
 
-We could use all of the data, but as we're not biologists, we'll only take what looks interesting to us. If we change our minds, then we write a migration to modify the database, and then edit the view and controllers files accordingly to make the changes. It's a bit of work, but easier than seeking to remove the scaffolding, and starting over.
+We could use all of the data, but as we're not biologists, we'll only take what looks interesting to us. This is why we only grab some of the columns of data from the file. If we change our minds, then we write a migration to modify the database, and then edit the view and controllers files accordingly to make the changes. It's a bit of work, but easier than seeking to remove the scaffolding, and starting over.
 
 We need to run the migration to set up the database.
 
@@ -30,14 +30,23 @@ We can start with generating a seed file to move the data. We do that with the c
 
 This will create a file under lib/tasks/bears.rake which we can now modify to suit our needs.
 
-Now, go look at the file here in the repo, and copy the code to your file, and you should find it runs ok. Run it with the command
+Now, go look at lib/tasks/bears.rake in the repo, and copy the code to your file. Run it with the command
 
     rake bears:seed_bears
 
 Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
 
-You could expand on this by parsing the status file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where the bears go. Then you could use the geo-location data to plot their locations on a map.
+##Following individual bears
+You could expand on this by parsing the ...status.csv file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where each bear goes. Then you could use the geo-location data to plot their locations on a map.
 
+Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 and giving it a new method name such as seed_status, and then changing the items you retrieve from each row in the file.
+
+When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell you can either
+a) delete the row, and then re-run the rake command, or
+b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work.
+For simplicity here, just delete the row and move on so that you get the file imported and the page views showing.
+
+Then, you can go back to the views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. Ideally, you could even plot the bear locations with a map.
 
 ##  TODO Reading a JSON file
 Ruby works well with JSON, as does Rails so using the JSON class is easy. http://ruby-doc.org/stdlib-2.4.2/libdoc/json/rdoc/JSON.html
