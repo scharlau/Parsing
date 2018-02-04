@@ -1,9 +1,11 @@
-# README FOR PARSING
+# README FOR Parsing
 
 This is a 'Deliberate Practice' exercise focusing on different ways to use Ruby to pull data from files and to dump it into your database as part of a Rails application. This application uses helper classes in Ruby for this, such as CSV class, and the JSON class, and as well as the fall-back of String methods with the File class.
 
-We'll use this data on Polar bears in Alasks to develop our application
+We'll use this data on Polar bears in Alaska to develop our application
 Data taken from https://alaska.usgs.gov/products/data.php?dataid=130 Download the zip file and unpack it to a folder.
+
+## Setting up the exercise
 
 With this we can start developing our application.
 
@@ -19,7 +21,15 @@ We need to run the migration to set up the database.
 
     rails db:migrate
 
+## Do the Work ##
+
+Work through the three rounds with a partner, or on your own, depending upon your circumstances. Each round should be twelve minutes, followed by a discussion of where you are and what has been working, as well as, what you're working on next.
+
 Now we need to get the polar bear data into our app. We have a number of options with which to do this. We'll start with the CVS class as our data is in this format.
+
+1. Round one should be reading the csv file and getting the data into the application.
+2. Round two should be displaying the data in a suitable manner.
+3. Round three should be adding in the 'status.cvs' file to tie together the bears with their current status.
 
 ## Reading a CSV file
 This is a common approach to working with open data, which is available in this format. There are methods available to read each row, and to parse them into objects for your application using http://ruby-doc.org/stdlib-2.4.2/libdoc/csv/rdoc/CSV.html You can also find more at https://www.sitepoint.com/guide-ruby-csv-library-part/
