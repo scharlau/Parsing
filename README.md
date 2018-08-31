@@ -32,7 +32,7 @@ Now we need to get the polar bear data into our app. We have a number of options
 3. Round three should be adding in the 'status.cvs' file to tie together the bears with their current status.
 
 ## Reading a CSV file
-This is a common approach to working with open data, which is available in this format. There are methods available to read each row, and to parse them into objects for your application using http://ruby-doc.org/stdlib-2.4.2/libdoc/csv/rdoc/CSV.html You can also find more at https://www.sitepoint.com/guide-ruby-csv-library-part/
+This is a common approach to working with open data, which is available in this format. There are methods available to read each row, and to parse them into objects for your application using http://ruby-doc.org/stdlib-2.4.2/libdoc/csv/rdoc/CSV.html You can also find more at https://www.sitepoint.com/guide-ruby-csv-library-part/ and you can also explore CVSReader gem https://github.com/csv11/csvreader which works better too. Look at the reasons for issues around the standard library at https://github.com/csv11/docs/blob/master/why-the-csv-stdlib-is-broken.md 
 
 We can start with generating a seed file to move the data. We do that with the command
 
