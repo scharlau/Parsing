@@ -46,11 +46,12 @@ Now, go look at lib/tasks/bears.rake in the repo, and copy the code to your file
 
 Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
 
-## Following individual bears
+## Following individual bears on their own page
 You could expand on this by parsing the ...status.csv file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where each bear goes. Then you could use the geo-location data to plot their locations on a map.
 
 Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 and giving it a new method name such as seed_status, and then changing the items you retrieve from each row in the file.
 
+## The data is messy and the parsing will break
 When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell you can either
 a) delete the row, and then re-run the rake command, or
 b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work.
