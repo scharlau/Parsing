@@ -51,7 +51,7 @@ namespace :bears do
         Status.create!(
         deployment_id: bear.id,
         deployID: bear_temp.to_i,
-        recieved: row[2].to_i,
+        recieved: row[2].to_s,
         latitude: row[4].to_d,
         longitude: row[5].to_d,
         temperature: temp_temp

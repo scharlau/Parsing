@@ -10,6 +10,7 @@ class DeploymentsController < ApplicationController
   # GET /deployments/1
   # GET /deployments/1.json
   def show
+    @status = Status.where("deployment_id=?", @deployment.id)
   end
 
   # GET /deployments/new

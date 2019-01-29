@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deployment:</strong>
+  <%= @status.deployment %>
+</p>
+
+<p>
+  <strong>Deployid:</strong>
+  <%= @status.deployID %>
+</p>
+
+<p>
+  <strong>Recieved:</strong>
+  <%= @status.recieved %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @status.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @status.longitude %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @status.temperature %>
+</p>
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

@@ -35,5 +35,20 @@
   <%= @deployment.Ear_applied %>
 </p>
 
+<p>
+<strong>Deployed Sightings</strong></p>
+ <% @status.each do |status| %>
+      <p>
+        Status: <%= status.deployment.BearID %><br />
+        BearID: <%= status.deployID %><br />
+        Recieved: <%= status.recieved %><br />
+        Latitude: <%= status.latitude %><br />>
+        Longitude: <%= status.longitude %><br />>
+        Temperature: <%= status.temperature %><br />>
+</p>
+<% end %>
+
+<p>TODO: Plot these on a map</p>
+
 <%= link_to 'Edit', edit_deployment_path(@deployment) %> |
 <%= link_to 'Back', deployments_path %>

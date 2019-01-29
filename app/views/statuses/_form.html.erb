@@ -1,0 +1,47 @@
+<%= form_with(model: status, local: true) do |form| %>
+  <% if status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :deployment_id %>
+    <%= form.text_field :deployment_id, id: :status_deployment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deployID %>
+    <%= form.number_field :deployID, id: :status_deployID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recieved %>
+    <%= form.text_field :recieved, id: :status_recieved %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :status_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :status_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :temperature %>
+    <%= form.text_field :temperature, id: :status_temperature %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

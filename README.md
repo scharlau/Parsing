@@ -9,7 +9,7 @@ With this we can start developing our application.
 
     rails new parsing
 
-This will create our new app structure. We can now look at the csv file and create some scaffolding to model and manipulate the data with the command
+This will create our new app structure. We can now look at the USGS_WC_eartag_deployments_2009-2011.csv file and create some scaffolding to model and manipulate the data with the command
 
     bin/rails generate scaffold deployments BearID:integer PTT_ID:integer capture_lat:decimal capture_long:decimal Sex Age_class Ear_applied
 
@@ -19,7 +19,14 @@ We need to run the migration to set up the database.
 
     rails db:migrate
 
+## Do the Work 
+Work through the three rounds with a partner, or on your own, depending upon your circumstances. Each round should be twelve minutes, followed by a discussion of where you are and what has been working, as well as, what you're working on next.
+
 Now we need to get the polar bear data into our app. We have a number of options with which to do this. We'll start with the CVS class as our data is in this format.
+
+1. Round one should be reading the csv file and getting the data into the application.
+2. Round two should be displaying the data in a suitable manner.
+3. Round three should be adding in the data in the 'status.cvs' file to tie together the bears with their current status. See the section further below for details on this part.
 
 ## Reading a CSV file
 This is a common approach to working with open data, which is available in this format. There are methods available to read each row, and to parse them into objects for your application using http://ruby-doc.org/stdlib-2.4.2/libdoc/csv/rdoc/CSV.html You can also find more at https://www.sitepoint.com/guide-ruby-csv-library-part/
@@ -36,8 +43,22 @@ Now, go look at the file here in the repo, and copy the code to your file, and y
 
 Then start rails, and go look at http://localhost:3000/deployments to see your list of bears.
 
-You could expand on this by parsing the status file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see where the bears go. Then you could use the geo-location data to plot their locations on a map.
+## Following Individual Bears
+You could expand on this by parsing the USGS_WC_eartags_output_files_2009-2011-Status.csv file so that it uses the DeployID column to reference the BearID column in our original file. This will let us see the travels of each bear since it was tagged. Then you could use the geo-location data to plot these locations on a map.
 
+Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 and giving it a new method name such as seed_status, and then changing the items you retrieve from each row in the file.
+
+## The data is messy and the parsing will break
+
+When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell you can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch and look at the rake file there.
+
+Then, you can go back to the views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. Ideally, you could even plot the bear locations with a map. The key here is to modify the method under 'show' in the controll to query the 'status' table using the DeployID column to reference the BearID and then show this result on the page for each bear.
+
+## This is rough and ready
+
+This works, but also shows issues. For example, BearID 20414 appears twice in deployments. If you select the second one, then you have no connected sightings. If you pick the first one, then you have LOTS of sightings. 
+
+From here you could show the locations of the sightings on a map using the GPS coordinates. You could also do a chart showing how many sightings there were for each bear by date. You could also do something with the other categories to produce visualisations to suit your needs.
 
 ##  TODO Reading a JSON file
 Ruby works well with JSON, as does Rails so using the JSON class is easy. http://ruby-doc.org/stdlib-2.4.2/libdoc/json/rdoc/JSON.html

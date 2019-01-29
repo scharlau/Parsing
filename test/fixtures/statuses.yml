@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deployment: one
+  deployID: 1
+  recieved: MyString
+  latitude: 9.99
+  longitude: 9.99
+  temperature: 
+
+two:
+  deployment: two
+  deployID: 1
+  recieved: MyString
+  latitude: 9.99
+  longitude: 9.99
+  temperature: 
