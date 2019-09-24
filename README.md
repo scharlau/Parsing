@@ -56,11 +56,13 @@ You need a model and associated table to do this. We don't need any new views as
 
 This will generate a model that includes the DeployID for each bear, and also an association between the models so that the status model belongs to the deployment model. Now run the migration that was also generated as you did before.
 
-With this in place we can now add to our task file to import the data. Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 of the same file and giving it a new method name such as seed_status, and then changing the items you retrieve from each row in the file.
+With this in place we can now add to our task file to import the data. Do this by coping lines 4-23 (the task seed_bears method) and pasting this into line 24 of the same file and giving it a new method name such as seed_status, and then changing the object to be a 'status' instance that you populate, and modify the items you retrieve from each row in the file to match the ones we are using in the 'status' model, and pass. When you have it ready you can run it with 
+
+    rake bears::seed_status
 
 ## The data is messy and the parsing will break
 
-When you run this new method you will find the parsing breaks due to gaps in the data. It breaks because one of the cells has no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell and can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch of the repository and look at the rake file there.
+When you run this new method you will find the parsing breaks due to gaps in the data. It breaks because one of the cells has no data, or had the data format different from what the parser was expecting. Given we're only doing this as an exercise, you can find the broken cell and can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. 
 
 Next we need to modify the views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. This has several steps. 
 
@@ -75,6 +77,9 @@ Ideally, you could even plot the bear locations with a map. The key here is to m
 This works, but also shows issues. For example, BearID 20414 appears twice in deployments. If you select the second one, then you have no connected sightings. If you pick the first one, then you have LOTS of sightings. 
 
 From here you could show the locations of the sightings on a map using the GPS coordinates. You could also do a chart showing how many sightings there were for each bear by date. You could also do something with the other categories to produce visualisations to suit your needs.
+
+## Look at 'a' solution
+You can see the start of how to build a workinng version of tracking individual bears if you switch to the 'solution' branch of the repository and look at the rake and other files there.
 
 ##  TODO Reading a JSON file
 Ruby works well with JSON, as does Rails so using the JSON class is easy. http://ruby-doc.org/stdlib-2.5.2/libdoc/json/rdoc/JSON.html
