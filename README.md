@@ -13,13 +13,12 @@ We'll start by importing some of the data from the USGS_WC_eartag_deployments_20
 
 We are not using all of the columns that are here. We could use all of the data, but as we're not biologists, we'll only take what looks interesting to us. If we change our minds, then we write a migration to modify the database, and then edit the view and controllers files accordingly to make the changes. 
 
-Rails uses the 'lib' directory to store tasks that manipulate assets in an application. Put the unpacked zip folder 'PolarBear_Telemetry...' here. We will call the csv files later. We'll start with one file, and then look at how we can join the data from two different files to build more interesting pages.
-
 With this we can start developing our application.
 
     rails new parsing
 
-This will create our new app structure. We can now look at  with the command
+This will create our new app structure. Rails uses the 'lib' directory to store tasks that manipulate assets in an application. Put the unpacked zip folder 'PolarBear_Telemetry...' here. We will call the csv files later. We'll start with one file, and then look at how we can join the data from two different files to build more interesting pages.
+We can now look at generating the start of our application with the command
 
     rails generate scaffold deployments BearID:integer PTT_ID:integer capture_lat:decimal capture_long:decimal Sex Age_class Ear_applied
 
