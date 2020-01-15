@@ -58,7 +58,7 @@ We need to generate another model for the data in the status file.
 
     rails generate model status deployID:integer recieved:string latitude:decimal longitude:decimal temperature:decimal deployment:references
 
-This will generate a model and a migration file for us to run. We don't need a controller or views as we'll use the ones we have. Run the migration as before with 
+This will generate a 'status' model tied to a similar named table in the database, along with a migration file for us to run to create the table. We don't need a controller or views as we'll use the ones we have. Run the migration as before with 
 
     rails db:migrate
 
@@ -68,7 +68,7 @@ Do this by coping lines 4-23 (the task seed_bears method from your rake file) an
 
 ## The data is messy and the parsing will break
 
-When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. 
+When you run this new method you will find the parsing breaks due to gaps in the data. It broke because one of the cells had no data, or had the data format different from what the parser was expecting. This is the nature of real-world data. It's not always nice and tidy.
 
 Given we're only parsing this data as an exercise, you can find the broken cell, and then you can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch and look at the rake file there.
 
