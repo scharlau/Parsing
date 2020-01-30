@@ -92,9 +92,11 @@ Step 14) Run your new rake file with the command (or whatever name you gave the 
 
     rake bears:seed_status
 
-Given we're only parsing this data as an exercise, you can find the broken cell, and then you can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch and look at the rake file there.
+Step 15) Given we're only parsing this data as an exercise, you can find the broken cell, and then you can either a) delete the row, and then re-run the rake command, or b) write a few lines of code as an 'if/else' statement to check the value of the cell and to either ignore it, or do something else as required to make it work. 
 
-Step 15) Open views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. The key here is to modify the method under 'show' in the controller to query the 'status' table using the DeployID column to reference the BearID and then show this result on the 'show' page for each bear.
+For simplicity here, just delete the row and move on so that you get the file imported and the page views showing. You can see the start of this work if you switch to the 'solution' branch of this repository and look at the rake file there. You'll find the solution branch in the drop-down menu at the top of the file listing on the left.
+
+Step 16) Open views/deployments/show.index.html.erb file and bring in the relavant data from the status table to display here. The key here is to modify the method under 'show' in the controller to query the 'status' table using the DeployID column to reference the BearID and then show this result on the 'show' page for each bear.
 
 ## This is rough and ready
 
