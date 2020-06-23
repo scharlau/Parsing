@@ -9,7 +9,7 @@ Under 'deliberate practice' we offer up the challenge, then think about options 
 Step 1) We'll use data on Polar bears in Alaska to develop our application
 Data is taken from https://alaska.usgs.gov/products/data.php?dataid=130 Download the zip file and unpack it to a folder. This will give us more data than we need, but that's ok. We're only using it to learn how to import data.
 
-We'll import some of the data from the USGS_WC_eartag_deployments_2009-2011.csv file and create some scaffolding to model and manipulate the data to put it into the database. Then we'll import some of the data from the USGS_WC_eartags_output_files_2009-2011-Status.csv file. Thhe DeployID column in this file references the BearID column in our original file. This tracks sightings of each bear since it was tagged by providing geo-coordinates and other details of each sighting.
+We'll import some of the data from the USGS_WC_eartag_deployments_2009-2011.csv file and USGS_WC_eartags_output_files_2009-2011-Status.csv file. The DeployID column in the second file references the BearID column in the first file. The second file tracks sightings of each bear lited in the first file since it was tagged by providing geo-coordinates and other details of each sighting.
 
 We are not using all of the columns that are here. We could use all of the data, but as we're not biologists, we'll only take what looks interesting to us. If we change our minds, then we write a migration to modify the database, and then edit the view and controllers files accordingly to make the changes. 
 
@@ -17,9 +17,16 @@ Step 2) We can start developing our application to display the data.
 
     rails new parsing
 
-This will create our new app structure. Rails uses the 'lib' directory to store tasks that manipulate assets in an application. 
+This will create our new app structure. 
 
-Step 3) Put the unpacked zip folder 'PolarBear_Telemetry...' here. We will call the csv files later. We'll start with one file, and then look at how we can join the data from two different files to build more interesting pages.
+We can now move the terminal into our application and run the remaining commands to prepare it for work:
+
+    bundle install
+    rails webpacker:install
+    yarn install --missing files
+
+
+Step 3) Rails uses the 'lib' directory to store tasks that manipulate assets in an application. Put the previously downloaded unpacked zip folder 'PolarBear_Telemetry...' here. We will call the csv files later. We'll start with one file, and then look at how we can join the data from two different files to build more interesting pages.
 
 Step 4) We can now look at generating the components of our application with the command
 
