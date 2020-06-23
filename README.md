@@ -9,7 +9,8 @@ Under 'deliberate practice' we offer up the challenge, then think about options 
 Step 1) We'll use data on Polar bears in Alaska to develop our application
 Data is taken from https://alaska.usgs.gov/products/data.php?dataid=130 Download the zip file and unpack it to a folder. This will give us more data than we need, but that's ok. We're only using it to learn how to import data.
 
-We'll import some of the data from the USGS_WC_eartag_deployments_2009-2011.csv file and USGS_WC_eartags_output_files_2009-2011-Status.csv file. The DeployID column in the second file references the BearID column in the first file. The second file tracks sightings of each bear lited in the first file since it was tagged by providing geo-coordinates and other details of each sighting.
+### Table Relationships for the Data
+We'll import data from two related tables. Each polar bear is listed in the USGS_WC_eartag_deployments_2009-2011.csv file. Each subsequent sighting of a bear is recorded in the USGS_WC_eartags_output_files_2009-2011-Status.csv file. The DeployID column in the second file references the BearID column in the first file. Therefore we end up with a one_to_many relationship between the two files.
 
 We are not using all of the columns that are here. We could use all of the data, but as we're not biologists, we'll only take what looks interesting to us. If we change our minds, then we write a migration to modify the database, and then edit the view and controllers files accordingly to make the changes. 
 
@@ -65,11 +66,11 @@ Step 8) Start rails with 'rails server', and go look at http://localhost:3000/de
 ## Following Individual Bears
 You can expand on this by parsing the USGS_WC_eartags_output_files_2009-2011-Status.csv file. Now we can see the travels of each bear since it was tagged. Then you could use the geo-location data to plot these locations on a map.
 
-Step 9) We need to generate another model for the data in the status file.
+Step 9) We need to generate another model for the data in the status file. We only generate a model, as we'll use this in our current controller, and in the current 'show.html.erb' file.
 
     rails generate model status deployID:integer recieved:string latitude:decimal longitude:decimal temperature:decimal deployment:references
 
-This will generate a 'status' model tied to a similar named table in the database, along with a migration file for us to run to create the table. We don't need a controller or views as we'll use the ones we have. 
+This will generate a 'status' model tied to a similar named table in the database, along with a migration file for us to run to create the table. We don't need another controller or views as we'll use the ones we have. 
 
 Step 10) Stop the server, and run the migration as before with 
 
